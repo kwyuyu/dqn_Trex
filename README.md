@@ -18,15 +18,22 @@ During our preliminary training on the T-Rex runne game, we found a phenomenon i
 
 ## Experiment
 ### Preprocessing
+<p align="center">
 <img src="./images/imagePreprocessing.png" width="100">
+</p>
+
+<p align="center">
 <img src="./images/preprocessing.png" width="700">
+</p>
 
 For each image frame from the game, we will not directly use it, instead we crop the portion of image frame which is useful. Since T-Rex will not move on the image, only background will move, we crop image from the left with ratio 0.75, in other word, the original image size is (600, 150), after cropping image, the image size will be (450, 150). This way, we can obtain useful image for training.
 
 In the next step, we convert the image to (84, 84) and make it becomes gray scale. The final input image will be like the first figure in this section. Also, since the original game has some useless background, for example, clouds, grass, and so on, we remove those trivial background to let our model only receive meaningful data. The final game will be like the second figure in this section.
 
 ### Network Architecture
+<p align="center">
 <img src="./images/networkArchitecture.png" width="700">
+</p>
 
 First, we convert the image of the current game frame to binary and take the left half of it which is (300,150) in shape to reshape into (84, 84) frame. Then, we concatenate the image four times to form the input array. 
 
@@ -37,11 +44,16 @@ Finally, we directly decide current movement decision base on these three values
 ### Training
 * **Setting**:
 We design 5 different strategies to train our model. We separate each experiment to two training phases, at the first phase, we try to set different frequency ratio for obstacles and train the model for one million iterations. As for the second phase, we will train the model with another one million iterations based on the original game setting, which is 0.8 and 0.2, for bird and cacti, respectively. The following figure is the setting of each experiments.
+
+<p align="center">
 <img src="./images/setting.png" width="600">
+</p>
 
 * **Result**:
 The result of the five different settings for the pre-train setting of the game is interesting. We can see that for the first two million training iteration the experiment 3 and experiment 3 reach the highest score that is training and testing only on cactus or only on bird. However, entering the second two million iterations, the score for experiment 2 could not reach the top any more. However, the score of the last two million iterations for experiment 3 is still very good even though the settings are different. The following figure is the accumulative loss for each experiement.
+<p align="center">
 <img src="./images/loss.png" width="600">
+</p>
 
 
 ## Reference
