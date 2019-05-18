@@ -1,6 +1,8 @@
 # Exploring deep reinforcement learning on T-Rex runner game and training with different pretrain settings
 In this project, we first modularized all the setting on the T-Rex runner game and improved a step-by-step training of deep reinforcement learning. Secondly, We explored the T-Rex runner game.
 
+During our preliminary training on the T-Rex runne game, we found a phenomenon in different settings. As the setting becomes more complicated, out model tends to learn more of the technic and will be able to handle a more complex situation either for future testing on different settings or keeping training on the different settings. In brief, we improved the T-Rex runner game, by experimenting on an interesting phenomenon of the effect and later performance of different settings for building a pre-train model.
+
 ## Get Started
 **Train from scratch**:
 
